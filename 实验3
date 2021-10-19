@@ -1,0 +1,103 @@
+import java.util.Scanner;
+
+public abstract class Employee {
+    private String name;
+    private String number;
+    private int birthday;
+    Employee (String name,String number,int birthday){
+        this.birthday = birthday;
+        this.number = number;
+        this.name = name;
+    }
+    public abstract int earnings();
+
+    public int getBirthday(){
+        return birthday;
+    }
+    public String getName(){
+        return name;
+    }
+    public void toString1(){
+        System.out.println("name:"+name+" number:"+number+" birthday:"+birthday);
+    }
+
+}
+
+class MyDate{
+    private int month;
+    private int day;
+    private int year;
+
+    public  String toDateString(){
+        return year+"年"+month+"月"+day+"日";
+    }
+
+}
+
+class SalariedEmployee extends Employee{
+    private int monthlySalary;
+
+    SalariedEmployee(String name, String number, int birthday,int monthlySalary) {
+        super(name, number, birthday);
+        this.monthlySalary = monthlySalary;
+    }
+
+    @Override
+    public int earnings() {
+        return monthlySalary;
+    }
+
+    public void toString1(){
+        super.toString1();
+    }
+
+}
+
+class HourlyEmployee extends Employee{
+    private int wage;
+    private int hour;
+
+    HourlyEmployee(String name, String number, int birthday,int wage,int hour) {
+        super(name, number, birthday);
+        this.wage = wage;
+        this.hour = hour;
+    }
+
+    @Override
+    public int earnings() {
+        return wage * hour;
+    }
+
+    @Override
+    public void toString1() {
+        super.toString1();
+    }
+}
+
+class PayrollSystem{
+    public static void main(String[] args) {
+        Employee e[] = new Employee[10];
+        for(int i = 0;i<3;i++){
+            e[i] = new HourlyEmployee("Ms."+i,"00"+i,i*2,i+3,i+3);
+        }
+        for(int i = 3;i<6;i++){
+            e[i] = new SalariedEmployee("Ms."+i,"00"+i,i*2,i+3);
+        }
+        for(int i = 0;i<6;i++){
+            e[i].toString1();
+        }
+        Scanner input = new Scanner(System.in);
+        System.out.println("输入一个月份:");
+        int month = input.nextInt();
+        boolean f = false;
+        for(int i = 0;i<6;i++){
+            if(e[i].getBirthday() == month){
+                System.out.println(e[i].getName()+"工资增加");
+                f = true;
+            }
+        }
+        if(!f){
+            System.out.println("没有人加工资");
+        }
+    }
+}
