@@ -1,0 +1,18 @@
+package h;
+
+public class Guess {
+    private int num;
+
+    public void setNum(int num){
+        this.num = num;
+    }
+
+    public boolean guess(int temp){
+        if(temp == num){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+}
