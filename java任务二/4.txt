@@ -1,0 +1,55 @@
+package d;
+
+import java.util.ArrayList;
+import java.util.ListIterator;
+/**
+ * @author shi
+ * @create 2021/11/3 16:13
+ */
+public abstract class Animal {
+    String name;
+    String color;
+    abstract void showMe();
+}
+
+class Cat extends Animal{
+
+    @Override
+    void showMe() {
+        System.out.println("name:"+name +" "+"color:"+color);
+    }
+}
+
+class Dog extends Animal{
+
+    @Override
+    void showMe() {
+        System.out.println("name:"+name +" "+"color:"+color);
+    }
+}
+
+class Snake extends Animal{
+
+    @Override
+    void showMe() {
+        System.out.println("name:"+name +" "+"color:"+color);
+    }
+}
+
+class Main{
+    public static void main(String[] args) {
+        ArrayList<Animal> arr = new ArrayList<Animal>();
+        Cat c = new Cat();
+        c.name = "小白";c.color = "白";
+        Dog g = new Dog();
+        g.name = "小黑";g.color = "黑";
+        Snake s = new Snake();
+        s.name = "小青";s.color = "青";
+        arr.add(c);
+        arr.add(g);
+        arr.add(s);
+        for(int i = 0;i<arr.size();i++){
+            arr.get(i).showMe();
+        }
+    }
+}
