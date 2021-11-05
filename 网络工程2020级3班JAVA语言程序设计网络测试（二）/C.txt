@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+/**
+ * @author shi
+ * @create 2021/11/5 9:29
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String a = input.nextLine();
+        Method mt = new Method();
+        mt.ok1(a);
+    }
+
+}
+
+class Method{
+
+    void ok1(String a){
+        boolean f = true;
+        for(int i = 0;i<a.length();i++){
+            if(a.charAt(i)>'9'||a.charAt(i)<'0'){
+                f = false;
+            }
+        }
+        if(a.length()!=13){
+            System.out.print("1");
+        }else if(!f){
+            System.out.print("2");
+        }else if(a.charAt(0)!='8'&&a.charAt(1)!='6'){
+            System.out.print("3");
+        }else
+            System.out.print("0");
+
+    }
+
+
+}

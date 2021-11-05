@@ -1,0 +1,66 @@
+package j;
+
+import java.util.Scanner;
+
+/**
+ * @author shi
+ * @create 2021/11/5 9:29
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[] a = new int[10];
+        for(int i = 0;i<10;i++){
+            a[i] = input.nextInt();
+        }
+        Method mt = new Method();
+        mt.ok1(a);
+        System.out.println(mt.ok2(a));
+        System.out.println(mt.ok3(a));
+        System.out.print(mt.ok4(a));
+    }
+
+}
+
+class Method{
+
+    void ok1(int[] a){
+        int l = 0,r = a.length-1;
+        while(l<=r){
+            if(a[l]<a[r]) {
+                int temp = a[l];
+                a[l] = a[r];
+                a[r] = temp;
+                l++;
+            }else r--;
+        }
+        for(int i = 0;i<a.length;i++){
+            if(i!=0) System.out.print(" ");
+            System.out.print(a[i]);
+        }
+        System.out.println();
+    }
+
+    int ok2(int[] a){
+        int sum = 0;
+        for(int i = 0;i<10;i++){
+            if(a[i]>0) sum++;
+        }
+        return sum;
+    }
+
+    int ok3(int[] a){
+        int sum = 0;
+        for(int i = 0;i<10;i++){
+            if(a[i]<0) sum++;
+        }
+        return sum;
+    }
+    int ok4(int[] a){
+        int sum = 0;
+        for(int i = 0;i<10;i++){
+            if(a[i]==0) sum++;
+        }
+        return sum;
+    }
+}
