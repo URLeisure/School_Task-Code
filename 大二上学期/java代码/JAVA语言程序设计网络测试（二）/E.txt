@@ -1,0 +1,32 @@
+package j;
+
+import java.util.Scanner;
+
+/**
+ * @author shi
+ * @create 2021/11/5 9:29
+ */
+public class Main {
+    public static void main(String[] args) {
+
+    }
+
+}
+
+class Id{
+    private String id;
+    private String password;
+    private String email;
+
+    Id(String id,String password,String email){
+        this.id = id;
+        this.password = password;
+        this.email = email;
+    }
+    Id(String id,String password){
+        this.id = id;
+        this.password = password;
+        this.email = id + "@hrbust.edu.cn";
+    }
+
+}

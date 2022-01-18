@@ -1,0 +1,37 @@
+package j;
+
+import java.util.Scanner;
+
+/**
+ * @author shi
+ * @create 2021/11/5 9:29
+ */
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int a = input.nextInt();
+        int b = input.nextInt();
+        Method mt = new Method();
+        System.out.print(mt.ok(a,b));
+    }
+
+}
+
+class Method{
+
+    int ok(int a,int b){
+        if(a<b){
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+        int m = a*b;
+        int c = a%b;
+        while(c!=0){
+            a = b;
+            b = c;
+            c = a%b;
+        }
+        return m/b;
+    }
+}

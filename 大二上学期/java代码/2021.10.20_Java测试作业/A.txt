@@ -1,0 +1,25 @@
+package h;
+
+        import java.util.Scanner;
+
+public class A {
+    public void method(int n,int a) {
+        int sum = 0, temp = a;
+        for (int i = 0; i < n; i++) {
+            sum += temp;
+            //System.out.println(temp);
+            temp = temp * 10 + a;
+        }
+        System.out.println(sum);
+    }
+}
+
+class test{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int a = input.nextInt();
+        A a1 = new A();
+        a1.method(n,a);
+    }
+}
